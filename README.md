@@ -27,7 +27,7 @@ Codificar los siguientes endpoints HTTP sobre el API:
 - Devuelve HTTP 400 en caso de error en la validación de datos
 - Devuelve HTTP 401 si las credenciales no son correctas
 
-# 3. El resto de endpoints de nuestra API (CRUD de Posts) deben requerir autenticación y devolver código HTTP 401 ante peticiones no autenticadas.
+## 3. El resto de endpoints de nuestra API (CRUD de Posts) deben requerir autenticación y devolver código HTTP 401 ante peticiones no autenticadas.
 
 ## Built with ⛏
 - [EXPRESS(https://expressjs.com/)
