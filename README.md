@@ -1,4 +1,4 @@
-#  API CRUD HTTP CON AUTENTICACIÓN🔗 💡
+#  API CRUD HTTP CON AUTENTICACIÓN JWT , LOGIN SOCIAL Y VALIDACIÓN MAIL🔗 💡
 
 Este ejercicio es continuación del API programado para el "Ejercicio 2".
 Sobre el mismo CRUD de Posts, en esta ocasión añadiremos un nuevo modelo de usuario y expondremos endpoints para login, logout y validación de cuenta
@@ -29,5 +29,15 @@ Codificar los siguientes endpoints HTTP sobre el API:
 
 ## 3. El resto de endpoints de nuestra API (CRUD de Posts) deben requerir autenticación y devolver código HTTP 401 ante peticiones no autenticadas.
 
+## 4. Confirmación de Registro
+- Tras crear un usuario (POST /api/users) éste se creara con el campo active: false. El servidor enviará un email a la dirección de correo de registro compartiendo una   URL con la que el usuario que reciba el correo pueda hacer GET para modificar el campo "active" de su cuenta a valor "true".
+  Solo usuarios con el campo active == true podrán hacer login (POST /api/login)
+
 ## Built with ⛏
-- [EXPRESS(https://expressjs.com/)
+- [EXPRESS(https://expressjs.com/)]
+- [NODEMAILER(https://nodemailer.com/about/)]
+- [PASSPORT(https://www.passportjs.org/packages/)]
+- [MONGOOSE(https://www.npmjs.com/package/mongodb-memory-server)]
+- 
+
+- 
