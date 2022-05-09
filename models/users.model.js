@@ -8,19 +8,27 @@ const schema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        lowercase: true,
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+
     },
     password: {
         type: String,
         required: true,
+     
     },
     bio : {
         type: String,
     },
-    active : {
-        type: Boolean,
-        default: false
-    }
+    validate : { //validate the user
+        type: Boolean, //if the user is active or not
+        default: false //
+    },
+    social : {
+        provider: String, //google
+        id: String
+},
 },
 {
     timestamps: true, //createdAt, updatedAt
@@ -28,8 +36,8 @@ const schema = new mongoose.Schema({
     toJSON: {
         virtuals: true,
         transform: (doc, ret) => {
-            ret.id = ret._id;
-            delete ret._id;
+            ret.id = ret._id; //remove _id from response
+            delete ret._id; //
             delete ret.__v;
         }
     }
@@ -37,24 +45,25 @@ const schema = new mongoose.Schema({
 
 //hash password before saving
 
-schema.pre('save', function(next) {
-   if (this.isModified('password')) {
-       bcrypt.hash(this.password, 10)
-         .then(hashedPassword => {
+schema.pre('save', function(next) { //pre save hook
+   if (this.isModified('password')) { //if password is modified
+       bcrypt.hash(this.password, 10) //hash password
+         .then(hashedPassword => { //save hashed password
                 this.password = hashedPassword;
-                next();
+                next(); //continue
             })
             .catch(next);
-    } else {
-        next();
+    } else { //if password is not modified
+        next(); //continue
     }
 });
 
 //check password
 
-schema.methods.checkPassword = function(password) {
-    return bcrypt.compare(password, this.password);
+schema.methods.checkPassword = function(password) { //method
+    return bcrypt.compare(password, this.password); //compare password
 };
+
 
 
 

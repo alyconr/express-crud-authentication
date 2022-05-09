@@ -8,10 +8,14 @@ const app = express();
 
 //Configs
 require("./config/db.config");
+require("./config/passport.config");
+const session = require("./config/session.config");
+
 
 
 //Middlewares
 
+app.use(session);
 app.use(morgan("dev"));
 app.use(express.json());
 
@@ -28,13 +32,29 @@ app.use("/" , routes);
 app.use((error, req, res, next) => {
    
     if (error instanceof mongoose.Error.ValidationError) {
-        error = createError(400, error.message);
+       
+        if (error.errors.email) {
+            res.status(400).json({
+                message: error.errors.email.message
+            });
+        } else if (error.errors.password) {
+            res.status(400).json({
+                message: error.errors.password.message
+            });
+        } else if (error.errors.name) {
+            res.status(400).json({
+                message: error.errors.name.message
+            });
+        } 
+
+        
+            
     }
     console.error(error);
     res.status(error.status || 500);
     res.json({
         error: {
-            message: error.message
+            message: "Mail already exists, try another one"
         }
     });
 });

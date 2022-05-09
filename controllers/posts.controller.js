@@ -4,14 +4,14 @@ const createError = require('http-errors');
 
 module.exports.list = (req, res, next) => {
 
-    Post.find()
+    Post.find() //find all posts
         .then((posts) => {
-          res.status(200).json({
+          res.status(200).json({ //send a response
               message: 'Posts  Listed',
                 posts: posts
           });
         })
-        .catch(next);
+        .catch(next); //if there is an error, send it to the next middleware
 };
 
 module.exports.detail= (req, res, next) => {
