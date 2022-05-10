@@ -189,8 +189,30 @@
 				{
 					"name": "Create User",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Diego\",\r\n    \"email\" : \"alyconr@hotmail.com\",\r\n    \"password\" : \"dqwdqdqdwdqw\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
 					},
 					"response": []
 				},
@@ -201,7 +223,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \r\n\r\n    \"email\" : \"pepe.example.org\",\r\n    \"password\" : \"123456789\"\r\n\r\n\r\n}",
+							"raw": "{\r\n  \r\n\r\n    \"email\" : \"diego.example.org\",\r\n    \"password\" : \"123456789\"\r\n\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -218,6 +240,152 @@
 							"path": [
 								"api",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFseWNvbnJAaG90bWFpbC5jb20iLCJ1c2VySWQiOiI2Mjc5YTY2ZmM3MWY4MTY1YzYxNDk2MWQiLCJpYXQiOjE2NTIxMzk2NDcsImV4cCI6MTY1MjE0MzI0N30.9XNm-mpamU_DXku_g46EA4iBXj6s0R8-3sat5gYNq4s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n\r\n    \"email\" : \"alyconr.hotmail.com\",\r\n    \"password\" : \"dqwdqdqdwdqw\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n\r\n    \"email\" : \"pepe.example.org\",\r\n    \"password\" : \"123456789\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/users/62795179fb4c1754251cb2eb/validate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"62795179fb4c1754251cb2eb",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n\r\n    \"email\" : \"pepe.example.org\",\r\n    \"password\" : \"123456789\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/users/62795179fb4c1754251cb2eb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"62795179fb4c1754251cb2eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpZWdvLmV4YW1wbGUub3JnIiwidXNlcklkIjoiNjI3OTRiNmY2MTI3NzgyZTgwOWU1MzNiIiwiaWF0IjoxNjUyMTE2MzY1LCJleHAiOjE2NTIxMTk5NjV9.YpcCRYK4kohUeevZCg92g4h9bhytxCnlXdEzJCP1qrM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n\r\n    \"email\" : \"pepe.example.org\",\r\n    \"password\" : \"123456789\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								""
 							]
 						}
 					},
