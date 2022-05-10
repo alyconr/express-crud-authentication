@@ -34,10 +34,8 @@ Codificar los siguientes endpoints HTTP sobre el API:
   Solo usuarios con el campo active == true podrán hacer login (POST /api/login)
 
 ## Built with ⛏
-- [EXPRESS(https://expressjs.com/)]
-- [NODEMAILER(https://nodemailer.com/about/)]
-- [PASSPORT(https://www.passportjs.org/packages/)]
-- [MONGOOSE(https://www.npmjs.com/package/mongodb-memory-server)]
-- 
+- [EXPRESS](https://expressjs.com/)
+- [NODEMAILER](https://nodemailer.com/about/)
+- [PASSPORT](https://www.passportjs.org/packages/)
+- [MONGOOSE](https://www.npmjs.com/package/mongodb-memory-server)
 
-- 
